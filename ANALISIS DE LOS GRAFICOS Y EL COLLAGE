@@ -1,0 +1,72 @@
+# Distribución de los ingresos
+
+# ANALISIS:
+# - ingreso: media=19785.49, mediana=13529, SD=19330. La gran
+#   diferencia entre media y mediana, junto con el skew=2.49 y
+#   kurtosis=11.35, confirman una distribucion fuertemente sesgada
+#   a la derecha: un grupo pequenio de casos con ingresos muy altos
+#   (hasta 192,020) infla el promedio, mientras la mayoria gana
+#   bastante menos (13,529 o menos). Esto justifica el uso de
+#   log_ingreso en los graficos y modelos estadisticos, ya que en
+#   la escala original no se cumple el supuesto de normalidad
+#   necesario para pruebas parametricas como t-test o ANOVA.
+# - edad: media=38.94 y mediana=38 son muy cercanas (skew=0.24),
+#   lo que indica una distribucion razonablemente simetrica. El
+#   rango (14 a 79 anios) es consistente con poblacion en edad de
+#   trabajar, ya filtrada por tener ingreso reportado.
+
+tabla_edu_sexo <- table(as_factor(datos$educacion), as_factor(datos$sexo))
+tabla_edu_sexo
+
+# ANALISIS:
+# - En los niveles educativos bajos (Primaria Incompleta: 30H/20M;
+#   Primaria Completa: 63H/27M; Secundaria Completa: 112H/42M) los
+#   hombres predominan claramente en la muestra de trabajadores con
+#   ingreso reportado.
+# - "Superior No Universitaria Completa" es de las pocas categorias
+#   con relativa paridad (52H/55M).
+# - Los grupos con "n" muy bajo por sexo (ej. "Sin Nivel": 5H/6M)
+#   deben interpretarse con cautela, ya que cualquier comparacion
+#   de ingreso promedio ahi tiene poca fiabilidad estadistica por
+#   el tamanio de muestra reducido.
+
+tabla_ocup_sexo <- table(as_factor(datos$categ_ocup), as_factor(datos$sexo))
+tabla_ocup_sexo
+
+# ANALISIS:
+# - La mayoria de la muestra se concentra en dos categorias:
+#   "Empresa o Patrono Privado" (341H/153M) y "Administracion
+#   Publica" (90H/90M, perfectamente paritaria).
+# - Las demas categorias (FFAA, Empresa Publica, SERVICE, Otra)
+#   tienen muy pocas observaciones y son poco relevantes para el
+#   analisis estadistico.
+# - En el sector privado la proporcion hombre/mujer es mas desigual
+#   (ratio ~2.2:1) que en el sector publico (ratio 1:1), lo que
+#   sugiere una mejor paridad de genero en el empleo publico dentro
+#   de esta muestra.
+
+promedio_ingreso_edu_sexo <- datos %>%
+  group_by(educacion = as_factor(educacion), sexo = as_factor(sexo)) %>%
+  summarise(
+    ingreso_promedio = mean(ingreso),
+    ingreso_mediana = median(ingreso),
+    n = n(),
+    .groups = "drop"
+  ) %>%
+  arrange(educacion, sexo)
+promedio_ingreso_edu_sexo
+
+# ANALISIS:
+# - En casi todos los niveles educativos, el ingreso promedio de
+#   hombres supera al de mujeres: Primaria Incompleta (11,652 vs
+#   6,567; brecha ~44%), Primaria Completa (11,576 vs 8,065; ~30%),
+#   Secundaria Incompleta (8,797 vs 7,147; ~19%).
+# - Excepcion notable: "Sin Nivel", donde la mediana de mujeres casi
+#   iguala a la de hombres (4,128 vs 2,998), aunque la media del
+#   hombre es mayor (8,653 vs 4,836), lo que sugiere un valor
+#   atipico masculino que infla el promedio en ese grupo.
+# - La brecha parece mas amplia en los niveles bajos (primaria) que
+#   en secundaria, lo que sugeriria que la brecha salarial se
+#   reduce (aunque no desaparece) a mayor nivel educativo. Esto se
+#   debe confirmar revisando los niveles superiores y de
+#   maestria/doctorado.
