@@ -15,8 +15,7 @@
 #   rango (14 a 79 anios) es consistente con poblacion en edad de
 #   trabajar, ya filtrada por tener ingreso reportado.
 
-tabla_edu_sexo <- table(as_factor(datos$educacion), as_factor(datos$sexo))
-tabla_edu_sexo
+# Relación de Nivel Educativo y ingresos
 
 # ANALISIS:
 # - En los niveles educativos bajos (Primaria Incompleta: 30H/20M;
@@ -30,8 +29,7 @@ tabla_edu_sexo
 #   de ingreso promedio ahi tiene poca fiabilidad estadistica por
 #   el tamanio de muestra reducido.
 
-tabla_ocup_sexo <- table(as_factor(datos$categ_ocup), as_factor(datos$sexo))
-tabla_ocup_sexo
+# Relación de categoria ocupacional con sexo
 
 # ANALISIS:
 # - La mayoria de la muestra se concentra en dos categorias:
@@ -45,16 +43,7 @@ tabla_ocup_sexo
 #   sugiere una mejor paridad de genero en el empleo publico dentro
 #   de esta muestra.
 
-promedio_ingreso_edu_sexo <- datos %>%
-  group_by(educacion = as_factor(educacion), sexo = as_factor(sexo)) %>%
-  summarise(
-    ingreso_promedio = mean(ingreso),
-    ingreso_mediana = median(ingreso),
-    n = n(),
-    .groups = "drop"
-  ) %>%
-  arrange(educacion, sexo)
-promedio_ingreso_edu_sexo
+# Relación de Educación, sexo e ingresos
 
 # ANALISIS:
 # - En casi todos los niveles educativos, el ingreso promedio de
