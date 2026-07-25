@@ -1,61 +1,109 @@
-# Distribución de los ingresos
+### Distribución de los ingresos
+#### ANÁLISIS:
 
-# ANALISIS:
-# - ingreso: media=19785.49, mediana=13529, SD=19330. La gran
-#   diferencia entre media y mediana, junto con el skew=2.49 y
-#   kurtosis=11.35, confirman una distribucion fuertemente sesgada
-#   a la derecha: un grupo pequenio de casos con ingresos muy altos
-#   (hasta 192,020) infla el promedio, mientras la mayoria gana
-#   bastante menos (13,529 o menos). Esto justifica el uso de
-#   log_ingreso en los graficos y modelos estadisticos, ya que en
-#   la escala original no se cumple el supuesto de normalidad
-#   necesario para pruebas parametricas como t-test o ANOVA.
-# - edad: media=38.94 y mediana=38 son muy cercanas (skew=0.24),
-#   lo que indica una distribucion razonablemente simetrica. El
-#   rango (14 a 79 anios) es consistente con poblacion en edad de
-#   trabajar, ya filtrada por tener ingreso reportado.
+El ingreso presenta una media de 19,785.49, una mediana de 13,529 y una desviación
+estándar de 19,330. La gran diferencia entre media y mediana, junto con un sesgo
+(skewness) de 2.49 y una curtosis de 11.35, confirman una distribución fuertemente
+sesgada a la derecha: un grupo pequeño de casos con ingresos muy altos (hasta 192,020)
+infla el promedio, mientras que la mayoría gana bastante menos (13,529 o menos). Esto
+justifica el uso de `log_ingreso` en los gráficos y modelos estadísticos, ya que en la
+escala original no se cumple el supuesto de normalidad necesario para pruebas
+paramétricas como el t-test o el ANOVA.
 
-# Relación de Nivel Educativo y ingresos
+La edad, en cambio, muestra una media de 38.94 y una mediana de 38, valores muy
+cercanos entre sí (skew=0.24), lo que indica una distribución razonablemente simétrica.
+El rango (14 a 79 años) es consistente con población en edad de trabajar, ya filtrada
+por tener ingreso reportado.
 
-# ANALISIS:
-# - En los niveles educativos bajos (Primaria Incompleta: 30H/20M;
-#   Primaria Completa: 63H/27M; Secundaria Completa: 112H/42M) los
-#   hombres predominan claramente en la muestra de trabajadores con
-#   ingreso reportado.
-# - "Superior No Universitaria Completa" es de las pocas categorias
-#   con relativa paridad (52H/55M).
-# - Los grupos con "n" muy bajo por sexo (ej. "Sin Nivel": 5H/6M)
-#   deben interpretarse con cautela, ya que cualquier comparacion
-#   de ingreso promedio ahi tiene poca fiabilidad estadistica por
-#   el tamanio de muestra reducido.
+### Relación de nivel educativo y sexo
+#### ANÁLISIS:
 
-# Relación de categoria ocupacional con sexo
+En los niveles educativos bajos (Primaria Incompleta: 30H/20M; Primaria Completa:
+63H/27M; Secundaria Completa: 112H/42M) los hombres predominan claramente en la
+muestra de trabajadores con ingreso reportado. "Superior No Universitaria Completa"
+es una de las pocas categorías con relativa paridad (52H/55M). Los grupos con "n" muy
+bajo por sexo (por ejemplo, "Sin Nivel": 5H/6M) deben interpretarse con cautela, ya
+que cualquier comparación de ingreso promedio ahí tiene poca fiabilidad estadística
+por el tamaño de muestra reducido.
 
-# ANALISIS:
-# - La mayoria de la muestra se concentra en dos categorias:
-#   "Empresa o Patrono Privado" (341H/153M) y "Administracion
-#   Publica" (90H/90M, perfectamente paritaria).
-# - Las demas categorias (FFAA, Empresa Publica, SERVICE, Otra)
-#   tienen muy pocas observaciones y son poco relevantes para el
-#   analisis estadistico.
-# - En el sector privado la proporcion hombre/mujer es mas desigual
-#   (ratio ~2.2:1) que en el sector publico (ratio 1:1), lo que
-#   sugiere una mejor paridad de genero en el empleo publico dentro
-#   de esta muestra.
+### Relación de categoría ocupacional con sexo
+#### ANÁLISIS:
 
-# Relación de Educación, sexo e ingresos
+La mayoría de la muestra se concentra en dos categorías: "Empresa o Patrono Privado"
+(341H/153M) y "Administración Pública" (90H/90M, perfectamente paritaria). Las demás
+categorías (FFAA, Empresa Pública, SERVICE, Otra) tienen muy pocas observaciones y son
+poco relevantes para el análisis estadístico. En el sector privado la proporción
+hombre/mujer es más desigual (ratio ~2.2:1) que en el sector público (ratio 1:1), lo
+que sugiere una mejor paridad de género en el empleo público dentro de esta muestra.
 
-# ANALISIS:
-# - En casi todos los niveles educativos, el ingreso promedio de
-#   hombres supera al de mujeres: Primaria Incompleta (11,652 vs
-#   6,567; brecha ~44%), Primaria Completa (11,576 vs 8,065; ~30%),
-#   Secundaria Incompleta (8,797 vs 7,147; ~19%).
-# - Excepcion notable: "Sin Nivel", donde la mediana de mujeres casi
-#   iguala a la de hombres (4,128 vs 2,998), aunque la media del
-#   hombre es mayor (8,653 vs 4,836), lo que sugiere un valor
-#   atipico masculino que infla el promedio en ese grupo.
-# - La brecha parece mas amplia en los niveles bajos (primaria) que
-#   en secundaria, lo que sugeriria que la brecha salarial se
-#   reduce (aunque no desaparece) a mayor nivel educativo. Esto se
-#   debe confirmar revisando los niveles superiores y de
-#   maestria/doctorado.
+### Relación de educación, sexo e ingresos
+#### ANÁLISIS:
+
+En casi todos los niveles educativos, el ingreso promedio de los hombres supera al de
+las mujeres: Primaria Incompleta (11,652 vs 6,567; brecha ~44%), Primaria Completa
+(11,576 vs 8,065; ~30%), Secundaria Incompleta (8,797 vs 7,147; ~19%). Una excepción
+notable es "Sin Nivel", donde la mediana de las mujeres casi iguala a la de los hombres
+(4,128 vs 2,998), aunque la media del hombre es mayor (8,653 vs 4,836), lo que sugiere
+un valor atípico masculino que infla el promedio en ese grupo. La brecha parece más
+amplia en los niveles bajos (primaria) que en secundaria, lo que sugeriría que la
+brecha salarial se reduce (aunque no desaparece) a mayor nivel educativo. Esto debe
+confirmarse revisando los niveles superiores y de maestría/doctorado.
+
+### Gráfico 1: Distribución del ingreso (escala logarítmica)
+
+El histograma muestra que, incluso en escala logarítmica, la distribución del ingreso
+no es perfectamente simétrica: se observa una forma bimodal, con una concentración
+principal alrededor de log(ingreso) ≈ 9.3–9.5 y una segunda acumulación notable cerca
+de 10.5, además de una cola larga hacia la izquierda con pocos casos de ingresos muy
+bajos (log ≈ 5–6). Esta bimodalidad sugiere que la muestra podría estar compuesta por
+al menos dos subgrupos con estructuras de ingreso distintas (por ejemplo, categorías
+ocupacionales o niveles educativos diferentes que generan "picos" de ingreso típico),
+lo cual justifica seguir explorando el ingreso desglosado por otras variables, como se
+hace en los gráficos 3 y 4. Aun así, transformar a logaritmo cumplió su propósito
+principal: comprimir la fuerte asimetría a la derecha que existía en la escala original
+y hacer visualizable la distribución sin que los valores extremos dominen el gráfico.
+
+### Gráfico 2: Ingreso según sexo
+
+El boxplot comparativo muestra que la mediana de log(ingreso) es muy similar entre
+hombres y mujeres, con una diferencia visualmente pequeña a favor de los hombres. Sin
+embargo, la caja de los hombres es más angosta (menor dispersión intercuartílica) y
+presenta varios valores atípicos por debajo de la caja, mientras que la caja de las
+mujeres es más ancha (mayor dispersión de ingresos) y su bigote inferior llega a un
+valor atípico extremo cercano a 0. Este gráfico, tomado de forma aislada, podría llevar
+a la conclusión errónea de que la brecha de género es mínima o inexistente —tal como
+lo confirmó después la prueba t global no significativa (p=0.088)—, pero es precisamente
+esta comparación simple, sin controlar por educación, la que resulta engañosa: oculta
+la brecha real que emerge al desagregar por nivel educativo.
+
+### Gráfico 3: Ingreso según nivel educativo y sexo
+
+Este es el gráfico más revelador del EDA, porque muestra el patrón que sostiene toda la
+Parte 2 del análisis: en prácticamente todos los niveles educativos (Primaria Incompleta,
+Primaria Completa, Secundaria Incompleta, Secundaria Completa, Superior No Universitaria
+Incompleta, Superior Universitaria Incompleta y Maestría/Doctorado), la mediana de
+log(ingreso) de los hombres se ubica visiblemente por encima de la de las mujeres. La
+única excepción visual clara es "Superior No Universitaria Completa", donde ambas cajas
+son casi idénticas, consistente con la brecha negativa (-4.95%) reportada en las tablas
+descriptivas. También se observa que la dispersión y los valores atípicos bajos son más
+frecuentes entre las mujeres en casi todos los niveles, lo que sugiere mayor heterogeneidad
+en sus ingresos dentro de cada categoría educativa. Este gráfico evidencia visualmente que
+la brecha no es un artefacto de la composición educativa de la muestra, sino que persiste
+dentro de cada nivel, tal como lo confirmó el ANOVA de dos factores (efecto de sexo
+significativo, p=0.0202).
+
+### Gráfico 4: Ingreso promedio por nivel educativo y sexo
+
+El gráfico de barras traduce la misma idea a la escala original (soles), y aquí la brecha
+se vuelve aún más visualmente dramática por el efecto de los valores extremos que la
+transformación logarítmica había atenuado: en "Maestría/Doctorado" los hombres alcanzan un
+ingreso promedio muy por encima de las mujeres (la barra roja es notoriamente más alta que
+la turquesa), y algo similar ocurre en niveles como "Superior Universitaria Completa" y
+"Primaria Incompleta". Las excepciones donde las mujeres superan levemente a los hombres
+son "Superior No Universitaria Completa" e "Inicial" (esta última con muestra probablemente
+muy pequeña, por lo que debe interpretarse con cautela). Es importante notar que, al estar
+en la escala original y no en logaritmo, este gráfico está más influenciado por valores
+atípicos extremos que las medianas del gráfico anterior, por lo que conviene leerlo en
+conjunto con el Gráfico 3: juntos muestran que la brecha no solo existe en promedio, sino
+que es consistente en la mayoría de niveles educativos, con la magnitud absoluta más grande
+concentrada en los niveles de educación más alta.
