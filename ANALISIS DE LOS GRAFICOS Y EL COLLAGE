@@ -107,3 +107,27 @@ atípicos extremos que las medianas del gráfico anterior, por lo que conviene l
 conjunto con el Gráfico 3: juntos muestran que la brecha no solo existe en promedio, sino
 que es consistente en la mayoría de niveles educativos, con la magnitud absoluta más grande
 concentrada en los niveles de educación más alta.
+
+
+
+
+### Brecha salarial de género por nivel educativo (gráfico final)
+#### ANÁLISIS:
+
+Este gráfico resume el hallazgo central de la Parte 2 del análisis: ordenado de mayor a
+menor brecha, se observa que 10 de los 11 niveles educativos con datos comparables
+muestran una brecha positiva a favor de los hombres, con "Sin Nivel" y "Primaria
+Incompleta" liderando con brechas cercanas al 44%, seguidas de cerca por "Secundaria
+Completa" (~43%). La brecha se mantiene elevada (30-40%) en varios niveles intermedios
+como "Superior Universitaria Incompleta", "Superior No Universitaria Incompleta" y
+"Maestría/Doctorado", y solo desciende de forma clara en "Secundaria Incompleta" (~19%)
+y "Superior Universitaria Completa" (~13%). La única barra que cruza a valores negativos
+es "Superior No Universitaria Completa", confirmando que ahí las mujeres ganan en
+promedio un poco más que los hombres (~-5%). "Inicial" no muestra barra porque, según la
+tabla de brecha, no hay observaciones de ambos sexos en ese nivel para calcular una
+comparación (probablemente por el tamaño de muestra reducido en ese grupo). En conjunto,
+el gráfico no evidencia un patrón monotónico donde la brecha se reduzca de forma
+consistente a mayor nivel educativo —de hecho, "Secundaria Completa" y "Maestría/
+Doctorado" muestran brechas más altas que varios niveles intermedios—, lo que respalda
+la conclusión de que la brecha salarial de género en Cajamarca responde a factores más
+estructurales que al simple nivel de estudios alcanzado.
