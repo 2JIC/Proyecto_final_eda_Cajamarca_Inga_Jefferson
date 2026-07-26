@@ -1,4 +1,5 @@
 # Proyecto_final_eda_Cajamarca_Inga_Jefferson
+# NOMBRE: INGA CEDANO JEFFERSON
 Se explora si existe una brecha de ingresos por sexo dentro de cada nivel educativo, controlado por categoria ocupacional en el departamento de Cajamarca
 
 Institucion: Instituto Nacional de Estadistica e Informatica (INEI)
